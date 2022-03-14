@@ -12,6 +12,7 @@ import os
 # Create your views here.
 def userFormView(request):
     if request.method == 'POST':
+        clear_mediadir() 
         form = userForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -19,6 +20,11 @@ def userFormView(request):
     else:
         form = userForm()
     return render(request, 'website/userInfo.html', {'form' : form})
+
+def clear_mediadir():
+    media_dir = "D:\B.E\\final project\Xray_diagnosis\media\images"
+    for f in os.listdir(media_dir):
+        os.remove(os.path.join(media_dir, f))
 
 def resultView(request):
     categories = ["COVID", "Viral Pneumonia", "Normal"]
@@ -70,7 +76,6 @@ def signup(request):
         # myuser.is_active = False
         myuser.is_active = False
         myuser.save()
-        messages.success(request, "Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.")
         
         return redirect('signin')
         
@@ -93,6 +98,7 @@ def signin(request):
             #return render(request, "website/userInfo.html",{"fname":fname})
         else:
             messages.error(request, "Bad Credentials!!")
+            #return redirect('userFormView')
             return redirect('home')
     
     return render(request, "website/signIn.html")
