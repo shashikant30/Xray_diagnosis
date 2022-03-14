@@ -1,6 +1,57 @@
-<h2>Enter user details</h2>
-<form method = "post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	body 
+		{
+		font-family: Arial, Helvetica, sans-serif;
+		margin-left:25%;
+		margin-right:25%;
+		border: 1px solid #000000;
+		margin-bottom: 5px;
+		padding: 0px 15px 0 15px;
+		}
+	input[type=text], input[type=password], input[type=number], input[type=file]
+		{
+		width: 97%;
+		padding: 10px;
+		margin: 5px 0 22px 0;
+		display: inline-block;
+		border: none;
+		background: #F5F5F5;
+		}
+	hr 
+		{
+		border: 1px solid #e6e6e6;
+		margin-bottom: 5px;
+		}
+	.registerbutton
+		{
+		background-color: #29a329;
+		color: white;
+		padding: 15px 20px;
+		margin: 10px 0px;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		text:bold;
+		}
+	
+
+</style>
+</head>
+<body>
+	<form method = "post" enctype="multipart/form-data">
+		<h1>Covid registration</h1>
+		<p>Please fill in this form </p>
+		<hr>
+		{% csrf_token %}
+        {{ form.as_p }}
+		<hr>
+		
+
+		<button type="submit" class="registerbutton">Register</button>	
+	</form>
+
+</body>
+</html>

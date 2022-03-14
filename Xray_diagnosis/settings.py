@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-
+import numpy as np
+import cv2
+from tensorflow.keras.models import load_model
+cnn=load_model('D:/B.E/final project/Effective Diagnosis of COVID-19 ,Pneumonia, Normal/first_model1.h5')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
