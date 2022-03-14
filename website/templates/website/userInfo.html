@@ -36,7 +36,17 @@
 		width: 100%;
 		text:bold;
 		}
-	
+	button
+		{
+		background-color: #58f358;
+		color: white;
+		padding: 15px 20px;
+		margin: 10px 0px;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		text:bold;
+		}
 
 </style>
 </head>
@@ -48,10 +58,9 @@
 		{% csrf_token %}
         {{ form.as_p }}
 		<hr>
-		
 
 		<button type="submit" class="registerbutton">Register</button>	
 	</form>
-
+	<button type="submit"><a href="/signout">SignOut</a></button>
 </body>
 </html>

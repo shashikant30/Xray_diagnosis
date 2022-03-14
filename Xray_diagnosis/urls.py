@@ -21,12 +21,12 @@ from website import views
 from website.forms import userForm
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('userinfo/', views.userFormView, name='userFormView'),
+    path('userinfo', views.userFormView, name='userFormView'),
     path('', views.home, name='home'),
     path('signup', views.signup, name='signup'),
     path('signin', views.signin, name='signin'),
     path('signout', views.signout, name='signout'),
-    path('result/', views.resultView)
+    path('result', views.resultView)
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,

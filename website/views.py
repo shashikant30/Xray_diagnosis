@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import userForm
-from .models import User
+from .models import Patient
 from Xray_diagnosis.settings import cnn
 import cv2
 import numpy as np
@@ -15,7 +15,7 @@ def userFormView(request):
         form = userForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("/result/")  
+            return redirect("/result")  
     else:
         form = userForm()
     return render(request, 'website/userInfo.html', {'form' : form})

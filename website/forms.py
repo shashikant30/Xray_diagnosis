@@ -1,6 +1,6 @@
 from django.forms import ModelForm
-from .models import User
+from .models import Patient
 class userForm(ModelForm):
     class Meta:
-        model = User
+        model = Patient
         fields = '__all__'
