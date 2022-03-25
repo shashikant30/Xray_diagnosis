@@ -29,6 +29,7 @@ def clear_mediadir():
 def resultView(request):
     categories = ["COVID", "Viral Pneumonia", "Normal"]
     img_array=cv2.imread(os.path.join('D:\B.E\\final project\Xray_diagnosis\media\images',os.listdir('D:\B.E\\final project\Xray_diagnosis\media\images')[-1]))
+    os.rename(os.path.join('D:\B.E\\final project\Xray_diagnosis\media\images',os.listdir('D:\B.E\\final project\\Xray_diagnosis\\media\\images')[-1]), 'D:\\B.E\\final project\\Xray_diagnosis\\media\\images\\ip_img.png')
     new_array = cv2.resize(img_array,(224, 224))
     image = np.expand_dims(new_array, 0)
     a=cnn.predict(image)
@@ -74,7 +75,7 @@ def signup(request):
         myuser.first_name = fname
         myuser.last_name = lname
         # myuser.is_active = False
-        myuser.is_active = False
+        myuser.is_active = True
         myuser.save()
         
         return redirect('signin')

@@ -4,6 +4,7 @@
 <style>
 	body 
 		{
+		
 		font-family: Arial, Helvetica, sans-serif;
         margin-top: 10%;
 		margin-left:25%;
@@ -12,6 +13,12 @@
 		margin-bottom: 5px;
 		padding: 0px 15px 0 15px;
 		}
+		.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 	button
 		{
 		background-color: #03a9f4;
@@ -31,7 +38,7 @@ text-align: center;
 </head>
 <body>
 	<h2>Result: {{result}}</h2>
-    
+    <img src="./../../../media/images/ip_img.png" alt="test" class="center">	
 	<button type="submit" ><a href="/userinfo">Back</a></button>
 	<button type="submit"><a href="/signout">SignOut</a></button>	
 </body>
