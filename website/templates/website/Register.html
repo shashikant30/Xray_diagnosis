@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-</head>
+{% include ".\\website\\index.html"%}
 <style>
-	body 
+	.content 
 		{
 		font-family: Arial, Helvetica, sans-serif;
+        margin-top: 5px;
 		margin-left:25%;
 		margin-right:25%;
-		border: 1px solid #000000;
 		margin-bottom: 5px;
 		padding: 0px 15px 0 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0,3s;
 		}
+    .content:hover{
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }    
 	input[type=text], input[type=password], input[type=number], input[type=file], input[type=email]
 		{
 		width: 97%;
@@ -45,7 +43,8 @@
 
 </style>
 <body>
-
+    <div class="content">
+        <br>
     <h3>Create your account!</h3>
     <form method="post" action="/signup">
         {% csrf_token %}
@@ -75,5 +74,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Sign Up</button>
     </form>
+</div>
 </body>
 </html>

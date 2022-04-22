@@ -22,7 +22,9 @@ from website.forms import userForm
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('userinfo', views.userFormView, name='userFormView'),
-    path('', views.home, name='home'),
+    path('history', views.previous_uploads, name='history'),
+    path('', views.home1, name='home'),
+    path('home', views.home1, name='home1'),
     path('signup', views.signup, name='signup'),
     path('signin', views.signin, name='signin'),
     path('signout', views.signout, name='signout'),

@@ -9,12 +9,19 @@ from Xray_diagnosis.settings import cnn
 import cv2
 import numpy as np
 import os
+#name_12=""
+#address_12=""
+#age_12=0
 # Create your views here.
 def userFormView(request):
     if request.method == 'POST':
         clear_mediadir() 
         form = userForm(request.POST, request.FILES)
         if form.is_valid():
+            form.user =request.user
+            name_12=request.POST['Name']
+            address_12=request.POST['Address']
+            age_12=request.POST['age']
             form.save()
             return redirect("/result")  
     else:
@@ -25,6 +32,10 @@ def clear_mediadir():
     media_dir = "D:\B.E\\final project\Xray_diagnosis\media\images"
     for f in os.listdir(media_dir):
         os.remove(os.path.join(media_dir, f))
+
+def previous_uploads(request):
+    list = Patient.objects.filter(user=request.user)
+    return render(request, "website/history.html",{'list':list})
 
 def resultView(request):
     categories = ["COVID", "Viral Pneumonia", "Normal"]
@@ -41,6 +52,10 @@ def resultView(request):
 
 def home(request):
     return render(request, "website/index.html")
+
+
+def home1(request):
+    return render(request, "website/home.html")
 
 def signup(request):
     if request.method == "POST":
@@ -95,7 +110,7 @@ def signin(request):
             login(request, user)
             fname = user.first_name
             # messages.success(request, "Logged In Sucessfully!!")
-            return redirect('userFormView')
+            return redirect('home')
             #return render(request, "website/userInfo.html",{"fname":fname})
         else:
             messages.error(request, "Bad Credentials!!")

@@ -34,9 +34,9 @@
 			color: black;
 		}
 		#heading{
-			font-family: Arial, Helvetica, sans-serif;
-			color:white;
-			font-size: 30px;
+			color: black;
+			font-size: x-large;
+			font-weight: bold;
 		}
 	</style>
 </head>
@@ -47,10 +47,10 @@
 				Welcome to Xray Diagnosis
 			</span>
 			<ul>
-				<li class="nav-menu"><a href="{% url 'home1' %}">Home</a></li>
+				<li class="nav-menu"><a href="{% url 'home' %}">Home</a></li>
 				{% if user.is_authenticated %}
 				<li class="nav-menu"><a href="{% url 'userFormView'%}">Upload Image</a></li>
-				<!--<li class="nav-menu"><a href="{% url 'history'%}">History</a></li>-->
+                <li class="nav-menu"><a href="{% url 'history'%}">History</a></li>
 				<li class="nav-menu"><a href="{% url 'signout'%}">SignOut</a></li>
 				{% else %}
 				<li class="nav-menu"><a href="{% url 'signup'%}">Register</a></li>
